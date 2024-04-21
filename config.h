@@ -1,5 +1,5 @@
-#define hall1 18
-#define hall2 19
+#define hall1 33
+#define hall2 32
 #define encoder 15
 #define dht11pino 4
 #define dhttipo DHT11
@@ -15,9 +15,9 @@
 #include <BH1750.h>
 
 //Definindo constantes com o nome da rede e senha do Wifi ao qual o ESP32 irá se conectar
-const char* ssid = "";
-const char* pass = "";
-//Passand o nome do servidor MQTT (o broker, que no casoo é o HiveMQ)
+const char* ssid = "HAO8000";
+const char* pass = "j10l21v25e11";
+//Passand o nome do servidor MQTT (o broker, que no caso é o HiveMQ)
 const char* mqtt_server = "broker.hivemq.com";
 //Criando uma instância de um cliente WiFi
 WiFiClient espClient;
