@@ -51,6 +51,7 @@ class climate{
   static void velocidade(){
     float contagemFloat = cont;
     float velocidade = (((contagemFloat/20))/3)*60;
+    direcao();
     // Essa função também é responsável por chamar a função "enviar"
     enviar(velocidade);
     cont = 0;
@@ -111,6 +112,7 @@ class climate{
     doc["u"] = umidade;
     doc["l"] = luminosidade;
     doc["v"] = vel;
+    doc["d"] = angulo;
     // Transforma a variável "doc" em um documento json serializado ("t": temperatura, "p": pressão, etc) substituindo as variáveis pelos valores contidos nelas e coloca a string gerada dentro da variável "output"
     serializeJson(doc, output);
     Serial.println(output);
@@ -128,12 +130,15 @@ class climate{
   }
   // Função responsável por fazer a interpretação da direção do vento de acordo com as leituras do sensor de efeito Hall
   static void direcao(){
+    Serial.println("Entrou na direçao");
     //Leitura dos dois sensores
-    float sensor1 = ((analogRead(hall1))*5)/4095;
-    float sensor2 = ((analogRead(hall2))*5)/4095;
+    float sensor1 = (analogRead(hall1)*5.00)/4095.00;
+    float sensor2 = (analogRead(hall2)*5.00)/4095.00;
     //Filtragem dos valores dos dois sensores e conversão para um valor de tensão
   /*  float sensor1Filtrado = (filter1(sensor1)*5)/4095;
     float sensor2Filtrado = (filter2(sensor2)*5)/4095;*/
+    Serial.println(sensor1);
+    Serial.println(sensor2);
 
     //Utilizando as matrizes de valores máximos e mínimos de valores dos sensores de efeito Hall e, a partir delas, identificando o ângulo correto para o qual o sensor de direção está apontando
     for(int i = 0; i <22; i++){
@@ -141,6 +146,8 @@ class climate{
       float sensorMatrix = (sensor1A[i]);
       if((sensor1 >= sensor1min[i] && sensor1 <=sensor1max[i]) && (sensor2 >= sensor2min[i] && sensor2 <= sensor2max[i])){
         angulo = dir[i];
+        Serial.print ("Angulo = ");
+        Serial.println(angulo);
         break;
       }
     }
