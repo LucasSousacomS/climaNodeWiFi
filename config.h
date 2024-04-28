@@ -1,6 +1,7 @@
 #define hall1 33
 #define hall2 32
 #define encoder 15
+#define bucket 17
 #define dht11pino 4
 #define dhttipo DHT11
 
@@ -19,6 +20,7 @@ const char* ssid = "***REMOVED***";
 const char* pass = "***REMOVED***";
 //Passand o nome do servidor MQTT (o broker, que no caso é o HiveMQ)
 const char* mqtt_server = "broker.hivemq.com";
+const float mmPorPulso = 1;
 //Criando uma instância de um cliente WiFi
 WiFiClient espClient;
 //Criando umas instância do PubSubClient (biblioteca usada para conectar ao mqtt)
@@ -42,14 +44,24 @@ DHT dht(dht11pino, dhttipo);
 BH1750 lightMeter;
 
 // Declaração de variáveis globais para remoção de leituras incorretas pelo encoder
-volatile long cont = 0;
+  volatile long cont = 0;
 unsigned long tempo = 0;
 volatile long tempoAntes = 0;
+
+unsigned long chuvaCont;
 
 // Função para contagem de detecções acusadas pelo sensor do tipo barreira
 void IRAM_ATTR isr(){
   if(millis() - tempoAntes > 20){ // Função de debounce (conta uma detecção apenas se ela ocorrer após 20 ms da detecção anterior)
     cont++;
+    tempoAntes = millis();
+  }  
+}
+
+// Função para contagem de detecções acusadas pelo sensor do tipo barreira
+void IRAM_ATTR contaChuva(){
+  if(millis() - tempoAntes > 20){ // Função de debounce (conta uma detecção apenas se ela ocorrer após 20 ms da detecção anterior)
+    chuvaCont++;
     tempoAntes = millis();
   }  
 }
