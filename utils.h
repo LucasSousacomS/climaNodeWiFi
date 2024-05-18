@@ -121,13 +121,13 @@ class climate{
     doc["v"] = vel;
     doc["d"] = angulo;
     doc["c"] = chuva;
-    Serial.print("chuva");
-    Serial.println(chuva);
-    Serial.print("chuva2");
-    Serial.println(chuvaCont);
+    // Serial.print("chuva");
+    // Serial.println(chuva);
+    // Serial.print("chuva2");
+    // Serial.println(chuvaCont);
     // Transforma a variável "doc" em um documento json serializado ("t": temperatura, "p": pressão, etc) substituindo as variáveis pelos valores contidos nelas e coloca a string gerada dentro da variável "output"
     serializeJson(doc, output);
-    Serial.print("Output: ");
+    // Serial.print("Output: ");
     Serial.println(output);
     //Publica a string em "output" no /casa/clima, que é o endereço do mqtt conectado no NodeRED. Quando o NodeRED receber esse arquivo, ele vai desmontar o arquivo JSON e separar t, p, u, l e v e mostrar todos eles em gráficos
     client.publish("/casa/clima", output);
@@ -150,13 +150,28 @@ class climate{
     //Filtragem dos valores dos dois sensores e conversão para um valor de tensão
   /*  float sensor1Filtrado = (filter1(sensor1)*5)/4095;
     float sensor2Filtrado = (filter2(sensor2)*5)/4095;*/
+    Serial.println("sensor1");
     Serial.println(sensor1);
+    Serial.println("sensor2");
     Serial.println(sensor2);
 
     //Utilizando as matrizes de valores máximos e mínimos de valores dos sensores de efeito Hall e, a partir delas, identificando o ângulo correto para o qual o sensor de direção está apontando
     for(int i = 0; i <22; i++){
       // O programa ficará apenas dentro da função "direcao" e "loop" até que a função "velocidade" seja chamada pelo interrupt a cada 3 segundos
       float sensorMatrix = (sensor1A[i]);
+      // Serial.print(i);
+      // Serial.println(": ");
+      // if(sensor1 >= sensor1min[i]){
+      //   Serial.println("sensor1 >= sensor1min[i]");
+      // }if(sensor1 <=sensor1max[i]){
+      //   Serial.println("sensor1 <=sensor1max[i]");
+      // }
+      // if(sensor2 >= sensor2min[i]){
+      //   Serial.println("sensor2 >= sensor2min[i]");
+      // }
+      // if(sensor2 <= sensor2max[i]){
+      //   Serial.println("sensor2 <= sensor2max[i]");
+      // }
       if((sensor1 >= sensor1min[i] && sensor1 <=sensor1max[i]) && (sensor2 >= sensor2min[i] && sensor2 <= sensor2max[i])){
         angulo = dir[i];
         Serial.print ("Angulo = ");
