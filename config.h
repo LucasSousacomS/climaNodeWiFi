@@ -5,6 +5,7 @@
 #define dht11pino 4
 #define dhttipo DHT11
 
+#include "secrets.h"
 #include <WiFi.h>
 #include <ArduinoJson.h>
 #include <ArduinoJson.hpp> 
@@ -16,11 +17,11 @@
 #include <BH1750.h>
 
 //Definindo constantes com o nome da rede e senha do Wifi ao qual o ESP32 irá se conectar
-const char* ssid = "HAO8000";
-const char* pass = "j10l21v25e11";
+const char* ssid = ID; //Substitua pelo nome da sua rede wi-fi
+const char* pass = PASS; //Substitua pela senha da sua rede wi-fi
 //Passand o nome do servidor MQTT (o broker, que no caso é o HiveMQ)
 const char* mqtt_server = "broker.hivemq.com";
-const float mmPorPulso = 1;
+const float mmPorPulso = 0.173;
 //Criando uma instância de um cliente WiFi
 WiFiClient espClient;
 //Criando umas instância do PubSubClient (biblioteca usada para conectar ao mqtt)

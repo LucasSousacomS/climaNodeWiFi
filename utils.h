@@ -120,7 +120,7 @@ class climate{
     doc["l"] = luminosidade;
     doc["v"] = vel;
     doc["d"] = angulo;
-    // doc["c"] = chuva;
+    doc["c"] = chuva;
     // Serial.print("chuva");
     // Serial.println(chuva);
     // Serial.print("chuva2");
