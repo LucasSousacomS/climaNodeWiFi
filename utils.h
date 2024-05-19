@@ -57,12 +57,15 @@ class climate{
     cont = 0;
   }
   void begin(){
+
     pinMode(encoder, INPUT);
+    pinMode(bucket, INPUT_PULLUP);
     // Iniciando todas as instâncias de bibliotecas necessárias
     Wire.begin();
     dht.begin();
     lightMeter.begin();
     //lightMeter.begin();
+
 
     if (!bmp.begin(0x76)) { /*Definindo o endereço I2C como 0x76. Mudar, se necessário, para (0x77)*/
       
@@ -72,6 +75,8 @@ class climate{
     }
     // Criação de um interrupt no pino 35, responsável por detectar leituras no encoder (medição de velocidade) e chamar a função ISR na mudança de 0 para 1 (obs: independente da escolha de rising, falling ou change, por algum motivo, no ESP32 este código considerou o interrupt em todas as mudanças de estado do pino 35)
     attachInterrupt(encoder, isr, CHANGE);
+
+    attachInterrupt(bucket, contaChuva, FALLING);
     // Criando um interrupt no software responsável por chamar a função "velocidade" a cada 3000ms (3 segundos)
     timer.setInterval (3000, velocidade);
   }
@@ -82,10 +87,12 @@ class climate{
     float pressao = (bmp.readPressure())/100; // Leitura da pressão e conversão para hPa
     float umidade = dht.readHumidity(); // Leitura da umidade relativa
     float luminosidade = lightMeter.readLightLevel();
+    float chuva = chuvaCont*mmPorPulso;
+    const float teste = 13.14;
     //Criando uma variável do tipoo "StaticJsonDocument<80>" chamada "doc"
-    StaticJsonDocument<80> doc;
+    StaticJsonDocument<150> doc;
     //Criando uma variável char chamada "output" com 80 colunas
-    char output[80];
+    char output[150];
     /*client.println("HTTP/1.1 200 OK");
     client.println("Content-Type: application/json");
     client.println("Connection: close"); 
@@ -113,8 +120,14 @@ class climate{
     doc["l"] = luminosidade;
     doc["v"] = vel;
     doc["d"] = angulo;
+    doc["c"] = chuva;
+    // Serial.print("chuva");
+    // Serial.println(chuva);
+    // Serial.print("chuva2");
+    // Serial.println(chuvaCont);
     // Transforma a variável "doc" em um documento json serializado ("t": temperatura, "p": pressão, etc) substituindo as variáveis pelos valores contidos nelas e coloca a string gerada dentro da variável "output"
     serializeJson(doc, output);
+    // Serial.print("Output: ");
     Serial.println(output);
     //Publica a string em "output" no /casa/clima, que é o endereço do mqtt conectado no NodeRED. Quando o NodeRED receber esse arquivo, ele vai desmontar o arquivo JSON e separar t, p, u, l e v e mostrar todos eles em gráficos
     client.publish("/casa/clima", output);
@@ -137,13 +150,28 @@ class climate{
     //Filtragem dos valores dos dois sensores e conversão para um valor de tensão
   /*  float sensor1Filtrado = (filter1(sensor1)*5)/4095;
     float sensor2Filtrado = (filter2(sensor2)*5)/4095;*/
+    Serial.println("sensor1");
     Serial.println(sensor1);
+    Serial.println("sensor2");
     Serial.println(sensor2);
 
     //Utilizando as matrizes de valores máximos e mínimos de valores dos sensores de efeito Hall e, a partir delas, identificando o ângulo correto para o qual o sensor de direção está apontando
     for(int i = 0; i <22; i++){
       // O programa ficará apenas dentro da função "direcao" e "loop" até que a função "velocidade" seja chamada pelo interrupt a cada 3 segundos
       float sensorMatrix = (sensor1A[i]);
+      // Serial.print(i);
+      // Serial.println(": ");
+      // if(sensor1 >= sensor1min[i]){
+      //   Serial.println("sensor1 >= sensor1min[i]");
+      // }if(sensor1 <=sensor1max[i]){
+      //   Serial.println("sensor1 <=sensor1max[i]");
+      // }
+      // if(sensor2 >= sensor2min[i]){
+      //   Serial.println("sensor2 >= sensor2min[i]");
+      // }
+      // if(sensor2 <= sensor2max[i]){
+      //   Serial.println("sensor2 <= sensor2max[i]");
+      // }
       if((sensor1 >= sensor1min[i] && sensor1 <=sensor1max[i]) && (sensor2 >= sensor2min[i] && sensor2 <= sensor2max[i])){
         angulo = dir[i];
         Serial.print ("Angulo = ");
