@@ -1,0 +1,942 @@
+[
+    {
+        "id": "76e7956b44d39194",
+        "type": "tab",
+        "label": "Clima2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7a35158f4e119c58",
+        "type": "ui_gauge",
+        "z": "76e7956b44d39194",
+        "name": "",
+        "group": "c8e2f1eb876f7cba",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "Pressão",
+        "label": "hPa",
+        "format": "{{value}}",
+        "min": "900",
+        "max": "1050",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1140,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "31cb6395eae4a427",
+        "type": "ui_gauge",
+        "z": "76e7956b44d39194",
+        "name": "",
+        "group": "d65a1e0505853ed6",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "Umidade",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1140,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "700fd66a48c2af2b",
+        "type": "ui_chart",
+        "z": "76e7956b44d39194",
+        "name": "",
+        "group": "af4bd04b30717ae9",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Gráfico de temperatura",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "10",
+        "ymax": "40",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1210,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4773b52b02da19a6",
+        "type": "ui_chart",
+        "z": "76e7956b44d39194",
+        "name": "",
+        "group": "c8e2f1eb876f7cba",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Gráfico de pressão",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "850",
+        "ymax": "1050",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1170,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1a2ad083a27c0329",
+        "type": "ui_chart",
+        "z": "76e7956b44d39194",
+        "name": "",
+        "group": "d65a1e0505853ed6",
+        "order": 3,
+        "width": "0",
+        "height": "0",
+        "label": "Gráfico de umidade",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1170,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "625334d3579e828c",
+        "type": "ui_gauge",
+        "z": "76e7956b44d39194",
+        "name": "",
+        "group": "6e24de36d4f5488e",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "Luminosidade",
+        "label": "lm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "20000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1160,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "353ddb30c954b1d0",
+        "type": "ui_chart",
+        "z": "76e7956b44d39194",
+        "name": "",
+        "group": "6e24de36d4f5488e",
+        "order": 3,
+        "width": "0",
+        "height": "0",
+        "label": "Gráfico de luminosidade",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "20000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1190,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1ff400c8d2ee5c68",
+        "type": "ui_gauge",
+        "z": "76e7956b44d39194",
+        "name": "",
+        "group": "182e8aa1bce655c2",
+        "order": 2,
+        "width": "6",
+        "height": "5",
+        "gtype": "gage",
+        "title": "velocidade",
+        "label": "KM/H",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1150,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "61253095d18d3ada",
+        "type": "ui_chart",
+        "z": "76e7956b44d39194",
+        "name": "",
+        "group": "182e8aa1bce655c2",
+        "order": 3,
+        "width": "0",
+        "height": "0",
+        "label": "Gráfico de velocidade",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "30",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1180,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "45de2361534c4b43",
+        "type": "debug",
+        "z": "76e7956b44d39194",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "1706877a61a8af60",
+        "type": "mqtt in",
+        "z": "76e7956b44d39194",
+        "name": "",
+        "topic": "/casa/clima",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c2e3a035cd273f5d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "45f6da909d388609",
+                "2aee0a9e245f1624",
+                "05bd59d10a12648c",
+                "a8b05f4edca83d33",
+                "57a666f17ec106d0",
+                "7c6fddded3c130c5",
+                "4d1438a62d286a74",
+                "09f64329caa44737"
+            ]
+        ]
+    },
+    {
+        "id": "45f6da909d388609",
+        "type": "change",
+        "z": "76e7956b44d39194",
+        "name": "Temperatura Split",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.t",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 240,
+        "wires": [
+            [
+                "d223b45c9d17d1b4",
+                "700fd66a48c2af2b",
+                "45de2361534c4b43"
+            ]
+        ]
+    },
+    {
+        "id": "2aee0a9e245f1624",
+        "type": "change",
+        "z": "76e7956b44d39194",
+        "name": "Pressao Split",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.p",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 280,
+        "wires": [
+            [
+                "3a2259cc9705ddf2",
+                "4773b52b02da19a6"
+            ]
+        ]
+    },
+    {
+        "id": "05bd59d10a12648c",
+        "type": "change",
+        "z": "76e7956b44d39194",
+        "name": "Umidade Split",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.u",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 320,
+        "wires": [
+            [
+                "9a023b7194a81a28",
+                "1a2ad083a27c0329"
+            ]
+        ]
+    },
+    {
+        "id": "57a666f17ec106d0",
+        "type": "change",
+        "z": "76e7956b44d39194",
+        "name": "Luminosidade Split",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.l",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 360,
+        "wires": [
+            [
+                "963c523f250cb8e0",
+                "353ddb30c954b1d0"
+            ]
+        ]
+    },
+    {
+        "id": "a8b05f4edca83d33",
+        "type": "change",
+        "z": "76e7956b44d39194",
+        "name": "Velocidade Split",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.v",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 400,
+        "wires": [
+            [
+                "9562b92d2a35a142",
+                "61253095d18d3ada"
+            ]
+        ]
+    },
+    {
+        "id": "d223b45c9d17d1b4",
+        "type": "function",
+        "z": "76e7956b44d39194",
+        "name": "function 2",
+        "func": "msg.payload = msg.payload.toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 200,
+        "wires": [
+            [
+                "6ab2581eb74fbf93"
+            ]
+        ]
+    },
+    {
+        "id": "3a2259cc9705ddf2",
+        "type": "function",
+        "z": "76e7956b44d39194",
+        "name": "function 3",
+        "func": "msg.payload = msg.payload.toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 320,
+        "wires": [
+            [
+                "7a35158f4e119c58"
+            ]
+        ]
+    },
+    {
+        "id": "9a023b7194a81a28",
+        "type": "function",
+        "z": "76e7956b44d39194",
+        "name": "function 4",
+        "func": "msg.payload = msg.payload.toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 380,
+        "wires": [
+            [
+                "31cb6395eae4a427"
+            ]
+        ]
+    },
+    {
+        "id": "963c523f250cb8e0",
+        "type": "function",
+        "z": "76e7956b44d39194",
+        "name": "function 5",
+        "func": "msg.payload = msg.payload.toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 440,
+        "wires": [
+            [
+                "625334d3579e828c"
+            ]
+        ]
+    },
+    {
+        "id": "9562b92d2a35a142",
+        "type": "function",
+        "z": "76e7956b44d39194",
+        "name": "function 6",
+        "func": "msg.payload = (msg.payload * 0.04863185427756999933140171957317)*6\nmsg.payload = msg.payload.toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 500,
+        "wires": [
+            [
+                "1ff400c8d2ee5c68"
+            ]
+        ]
+    },
+    {
+        "id": "8225b85db5104c80",
+        "type": "remote-access",
+        "z": "76e7956b44d39194",
+        "confignode": "3c2bb47dcaab3214",
+        "name": "",
+        "verbose": true,
+        "x": 1860,
+        "y": 260,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7c6fddded3c130c5",
+        "type": "change",
+        "z": "76e7956b44d39194",
+        "name": "Direção Split",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.d",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 520,
+        "wires": [
+            [
+                "29b1ecd0a4744125",
+                "280dc2b7d0524da1"
+            ]
+        ]
+    },
+    {
+        "id": "4d1438a62d286a74",
+        "type": "debug",
+        "z": "76e7956b44d39194",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "09f64329caa44737",
+        "type": "change",
+        "z": "76e7956b44d39194",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.c",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 600,
+        "wires": [
+            [
+                "4459105d9b0c922a",
+                "45de2361534c4b43"
+            ]
+        ]
+    },
+    {
+        "id": "4459105d9b0c922a",
+        "type": "ui_text",
+        "z": "76e7956b44d39194",
+        "group": "4cdd47a8127816a2",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Chuvas",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1100,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "29b1ecd0a4744125",
+        "type": "ui_gauge",
+        "z": "76e7956b44d39194",
+        "name": "",
+        "group": "d1590c0c23008710",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "gtype": "compass",
+        "title": "gauge",
+        "label": "º",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "360",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1130,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "6ab2581eb74fbf93",
+        "type": "ui_gauge",
+        "z": "76e7956b44d39194",
+        "name": "",
+        "group": "af4bd04b30717ae9",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "ºC",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "45",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1170,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "280dc2b7d0524da1",
+        "type": "debug",
+        "z": "76e7956b44d39194",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "c8e2f1eb876f7cba",
+        "type": "ui_group",
+        "name": "Pressão",
+        "tab": "a58aaa001ab8f8ea",
+        "order": 2,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d65a1e0505853ed6",
+        "type": "ui_group",
+        "name": "Umidade",
+        "tab": "a58aaa001ab8f8ea",
+        "order": 3,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "af4bd04b30717ae9",
+        "type": "ui_group",
+        "name": "Temperatura",
+        "tab": "a58aaa001ab8f8ea",
+        "order": 2,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6e24de36d4f5488e",
+        "type": "ui_group",
+        "name": "Luminosidade",
+        "tab": "a58aaa001ab8f8ea",
+        "order": 4,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "182e8aa1bce655c2",
+        "type": "ui_group",
+        "name": "Velocidade do vento",
+        "tab": "a58aaa001ab8f8ea",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c2e3a035cd273f5d",
+        "type": "mqtt-broker",
+        "name": "Public broker",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "tls": "95d3ce266d6b780a",
+        "clientid": "test-publisher",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "3c2bb47dcaab3214",
+        "type": "remote-config",
+        "name": "Clima",
+        "host": "localhost",
+        "protocol": "http",
+        "port": "1880",
+        "baseurl": "/ui",
+        "instancehash": "xg2flup13kkjsr6whsifcukgxtwxinboenliuirwn3gxsawupefxidhptwxt5y5u",
+        "server": "nodered03.remote-red.com",
+        "region": "us"
+    },
+    {
+        "id": "4cdd47a8127816a2",
+        "type": "ui_group",
+        "name": "Chuva",
+        "tab": "a58aaa001ab8f8ea",
+        "order": 7,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d1590c0c23008710",
+        "type": "ui_group",
+        "name": "Direção do vento",
+        "tab": "a58aaa001ab8f8ea",
+        "order": 6,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": "direcao"
+    },
+    {
+        "id": "a58aaa001ab8f8ea",
+        "type": "ui_tab",
+        "name": "Clima",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "95d3ce266d6b780a",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": true,
+        "alpnprotocol": ""
+    }
+]
